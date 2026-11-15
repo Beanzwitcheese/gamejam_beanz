@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Script" uid="uid://dt2ofan62emnk" path="res://Levels/Main/Main.gd" id="1_wgnu6"]
+[ext_resource type="AudioStream" uid="uid://cf3wycvs8lysv" path="res://Levels/Main/Main theme.mp3" id="2_7lmy7"]
+
+[node name="Control" type="Control" unique_id=216232053]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wgnu6")
+
+[node name="Level select" type="Button" parent="." unique_id=2143784155]
+layout_mode = 0
+offset_top = 54.0
+offset_right = 99.0
+offset_bottom = 85.0
+text = "Level Select"
+
+[node name="Label" type="Label" parent="." unique_id=345520447]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Welcome to Floppy Cat
+Have fun"
+
+[node name="Play" type="Button" parent="." unique_id=1302842064]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 86.0
+offset_right = 42.0
+offset_bottom = 117.0
+text = "Play"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=103091473]
+stream = ExtResource("2_7lmy7")
+parameters/looping = true
+
+[connection signal="pressed" from="Level select" to="." method="_on_level_select_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

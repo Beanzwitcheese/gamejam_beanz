@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b4860bt6hij8x"]
+
+[ext_resource type="Script" uid="uid://bwanupv682m1u" path="res://Enemies/red_fish.gd" id="1_m54vq"]
+[ext_resource type="Texture2D" uid="uid://sotoxlewhsfu" path="res://Enemies/Red_fish_enemy.png" id="2_m54vq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e78"]
+size = Vector2(27, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m54vq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1286070862]
+collision_layer = 4
+script = ExtResource("1_m54vq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005246418]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d2e78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1949928331]
+sprite_frames = SubResource("SpriteFrames_vao7y")

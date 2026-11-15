@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://viml4guvrp6u"]
+
+[ext_resource type="Script" uid="uid://d24yurhgbwxyl" path="res://Enemies/Dog.gd" id="1_y4tpp"]
+[ext_resource type="Texture2D" uid="uid://c800v2kiylpmj" path="res://Enemies/Dog_enemy.png" id="2_5pw88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e78"]
+size = Vector2(23, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5pw88")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=389468523]
+collision_layer = 4
+script = ExtResource("1_y4tpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1304527066]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_d2e78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1324694536]
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Timer" type="Timer" parent="." unique_id=214518827]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

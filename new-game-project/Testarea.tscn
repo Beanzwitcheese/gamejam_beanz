@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cids3ynimtsvv"]
+
+[ext_resource type="PackedScene" uid="uid://ckq3qrtq1xu6" path="res://Gravity/Gravity_switcher.tscn" id="1_fxtxa"]
+
+[node name="Node2D" type="Node2D" unique_id=1153898421]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=205839028]
+
+[node name="Area2D" parent="." unique_id=648036067 instance=ExtResource("1_fxtxa")]

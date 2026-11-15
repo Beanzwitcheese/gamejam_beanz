@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://djf7keuxeyyoh"]
+
+[ext_resource type="Script" uid="uid://tm3tng57twac" path="res://UI.gd" id="1_b3bc3"]
+[ext_resource type="Texture2D" uid="uid://damati60wgoxq" path="res://Full_heart.png" id="2_g6l6n"]
+[ext_resource type="Texture2D" uid="uid://d20qe4mopeyci" path="res://Empty_heart.png" id="3_qui0h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g6l6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qui0h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="CanvasLayer" unique_id=1573819425]
+script = ExtResource("1_b3bc3")
+
+[node name="Health" type="Label" parent="." unique_id=1065590640]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health"
+
+[node name="Heart1" type="AnimatedSprite2D" parent="." unique_id=94361037]
+position = Vector2(17, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart2" type="AnimatedSprite2D" parent="." unique_id=166799069]
+position = Vector2(34, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart3" type="AnimatedSprite2D" parent="." unique_id=621284923]
+position = Vector2(51, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart4" type="AnimatedSprite2D" parent="." unique_id=95191102]
+position = Vector2(68, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart5" type="AnimatedSprite2D" parent="." unique_id=487538318]
+position = Vector2(85, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart6" type="AnimatedSprite2D" parent="." unique_id=1371882557]
+position = Vector2(102, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart7" type="AnimatedSprite2D" parent="." unique_id=999998609]
+position = Vector2(119, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart8" type="AnimatedSprite2D" parent="." unique_id=1397131639]
+position = Vector2(136, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Heart9" type="AnimatedSprite2D" parent="." unique_id=1423553222]
+position = Vector2(153, 35)
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="Time" type="Label" parent="." unique_id=374406047]
+offset_left = 133.0
+offset_right = 173.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="." unique_id=963852675]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

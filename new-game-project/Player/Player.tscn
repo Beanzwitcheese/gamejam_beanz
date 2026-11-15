@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ckudr8chj1kgo"]
+
+[ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://Player/Player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://blbnpmmo3rcrm" path="res://Player/Animations/Idle/Cat_stretching.png" id="2_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://m0ilbg31j7fb" path="res://Player/Animations/Jumping/New_Piskel_2.png" id="2_kne1u"]
+[ext_resource type="Texture2D" uid="uid://cjm3rfh2y68f8" path="res://Player/Animations/Walking/CaT_wallomg.png" id="4_6ysni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nh20"]
+size = Vector2(22, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8g4oa")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kne1u")
+}],
+"loop": 1,
+"name": &"Jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kne1u")
+}],
+"loop": 1,
+"name": &"Waiting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6ysni")
+}],
+"loop": 1,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fg415"]
+size = Vector2(13, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vao7y"]
+size = Vector2(21, 11.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=558714071]
+collision_layer = 2
+script = ExtResource("1_kpjcp")
+
+[node name="Movebox" type="CollisionShape2D" parent="." unique_id=1272010088]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_5nh20")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365187421]
+sprite_frames = SubResource("SpriteFrames_vao7y")
+animation = &"Walking"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2099337022]
+
+[node name="Coyote_time" type="Timer" parent="." unique_id=1661343917]
+wait_time = 0.2
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=422865959]
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Hitbox" unique_id=335018967]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_fg415")
+debug_color = Color(0.8996324, 0.00017596602, 0.7668337, 0.41960785)
+
+[node name="Bounce" type="Area2D" parent="." unique_id=1469874445]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce" unique_id=798412988]
+position = Vector2(0, 2.25)
+shape = SubResource("RectangleShape2D_vao7y")
+
+[connection signal="timeout" from="Coyote_time" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Bounce" to="." method="_on_bounce_body_entered"]

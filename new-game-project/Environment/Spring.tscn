@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://4ecq3ji6ah8j"]
+
+[ext_resource type="Texture2D" uid="uid://de3567ny4nblm" path="res://Environment/Spring.png" id="1_kyomv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e78"]
+size = Vector2(32, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kyomv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=156044173]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=144996]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d2e78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=577128400]
+sprite_frames = SubResource("SpriteFrames_vao7y")

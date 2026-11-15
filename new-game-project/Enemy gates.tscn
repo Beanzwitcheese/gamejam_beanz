@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bs285x2dd1xpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vao7y"]
+
+[node name="Area2D" type="Area2D" unique_id=525335008]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=866403934]
+shape = SubResource("RectangleShape2D_vao7y")

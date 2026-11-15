@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b7p6xrcgj67s5"]
+
+[ext_resource type="Script" uid="uid://bslfos4vn4238" path="res://Levels/Level_1/Level_1_ender.gd" id="1_f0osn"]
+[ext_resource type="Texture2D" uid="uid://cwqt75itv0qji" path="res://Levels/Next_level.png" id="2_rarp3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rarp3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2e78"]
+radius = 30.016663
+
+[node name="Area2D" type="Area2D" unique_id=462767783]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_f0osn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=239078860]
+sprite_frames = SubResource("SpriteFrames_vao7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=353834337]
+shape = SubResource("CircleShape2D_d2e78")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

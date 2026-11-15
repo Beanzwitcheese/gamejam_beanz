@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://do8d6ro7xpye0"]
+
+[ext_resource type="Script" uid="uid://bv8okrg314x1" path="res://Enemies/Fish_enemy.gd" id="1_j2ykt"]
+[ext_resource type="Texture2D" uid="uid://ky0dfeh3th2g" path="res://Enemies/Fish_enemy.png" id="2_8ijwk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2e78"]
+size = Vector2(27, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vao7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ijwk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1286070862]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_j2ykt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005246418]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d2e78")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1949928331]
+sprite_frames = SubResource("SpriteFrames_vao7y")

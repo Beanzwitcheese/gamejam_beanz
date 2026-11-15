@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8lelxtxe75fl"
+path="res://.godot/imported/Sad Violin - Sound Effect (HD).mp3-5bdc1ba07669255f2a9605073291ab48.mp3str"
+
+[deps]
+
+source_file="res://Levels/Death/Sad Violin - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Sad Violin - Sound Effect (HD).mp3-5bdc1ba07669255f2a9605073291ab48.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
